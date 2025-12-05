@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: mi-sitio-html
+    ports:
+      - "80:80"
+    volumes:
+      # Si tu proyecto está en la carpeta raíz
+      - ./:/usr/share/nginx/html:ro
+      # Si tu proyecto es React/Vite y ya corriste npm run build
+      # usa la carpeta dist en lugar de la raíz:
+      # - ./dist:/usr/share/nginx/html:ro
+    restart: always
